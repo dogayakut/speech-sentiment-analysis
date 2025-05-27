@@ -28,9 +28,17 @@ def analyze_sentiment(text):
     return sentiment.score, sentiment.magnitude
 
 if __name__ == "__main__":
-    audio_path = "/Users/nebahatdogayakut/Desktop/test.wav"
+    audio_path = audio_path = input("Please enter the path of your audio file: ")
+
     text = speech_to_text(audio_path)
     print("Transcribed text:", text)
 
     score, magnitude = analyze_sentiment(text)
     print(f"Sentiment score: {score}, magnitude: {magnitude}")
+    if score > 0.25:
+    emotion = "Happy"
+elif score < -0.25:
+    emotion = "Sad"
+else:
+    emotion = "Neutral"
+
